@@ -4262,5 +4262,13 @@
   "error.msg.caanot.transfer.client.as.loan.transaction.present.on.or.after.transfer.date" : "Cannot transfer client as one or more loan transactions present after selected transfer date.",
   "error.msg.caanot.transfer.client.as.savings.transaction.present.on.or.after.transfer.date" : "Cannot transfer client as one or more saving transactions present after selected transfer date.",
   "error.msg.cannot.transfer.clinet.as.selected.office.and.current.office.are.same" : "Client's current office and proposed office are same.",
+
+  "label.heading.interestSuspenseLiabilityAccountForNPA":"Interest Suspense Account For NPA",
+  "label.heading.feesSuspenseLiabilityAccountForNPA"  : "Fees Suspense Account For NPA",
+  "label.heading.penaltiesSuspenseLiabilityAccountForNPA" : "Penalties Suspense Account For NPA",
+  "label.tooltip.interestSuspenseLiabilityAccountForNPA":"a Liability account that is used for interest accrual for NPA loans.",
+  "label.tooltip.feesSuspenseLiabilityAccountForNPA" : "a Liability account that is used for fees accrual for NPA loans.",
+  "label.tooltip.penaltiesSuspenseLiabilityAccountForNPA" : "a Liability account that is used for penalties accrual for NPA loans.",
+
   "----End---": "--End of file--- "
 }

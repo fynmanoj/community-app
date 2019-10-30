@@ -1111,7 +1111,42 @@
 	                ng-options="liabilityAccount.id as liabilityAccount.name for liabilityAccount in liabilityAccountOptions"
 	                value="{{liabilityAccount.id}}">
 	        </select>
-	    </div>
+		</div>
+		<label class="control-label col-sm-2">{{ 'Interest Suspense Account for NPA' | translate }}</label>
+		<i class="fa fa-question-circle col-sm-1 "
+			uib-tooltip="{{'label.tooltip.interestSuspenseLiabilityAccountForNPA' | translate}}"></i>
+
+		<div class="col-sm-3">
+			<select id="interestSuspenseAccountIdForNPA" ng-model="formData.interestSuspenseAccountIdForNPA"
+					chosen="liabilityAccountOptions"
+					ng-options="liabilityAccount.id as liabilityAccount.name for liabilityAccount in liabilityAccountOptions"
+					value="{{liabilityAccount.id}}">
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2">{{ 'Fees Suspense Account for NPA' | translate }}</label>
+		<i class="fa fa-question-circle col-sm-1 "
+		   uib-tooltip="{{'label.tooltip.feesSuspenseLiabilityAccountForNPA' | translate}}"></i>
+
+		<div class="col-sm-3">
+			<select id="feesSuspenseAccountIdForNPA" ng-model="formData.feesSuspenseAccountIdForNPA"
+					chosen="liabilityAccountOptions"
+					ng-options="liabilityAccount.id as liabilityAccount.name for liabilityAccount in liabilityAccountOptions"
+					value="{{liabilityAccount.id}}">
+			</select>
+		</div>
+		<label class="control-label col-sm-2">{{ 'Penalties Suspense Account for NPA' | translate }}</label>
+		<i class="fa fa-question-circle col-sm-1 "
+		   uib-tooltip="{{'label.tooltip.penaltiesSuspenseLiabilityAccountForNPA' | translate}}"></i>
+
+		<div class="col-sm-3">
+			<select id="penaltiesSuspenseAccountIdForNPA" ng-model="formData.penaltiesSuspenseAccountIdForNPA"
+					chosen="liabilityAccountOptions"
+					ng-options="liabilityAccount.id as liabilityAccount.name for liabilityAccount in liabilityAccountOptions"
+					value="{{liabilityAccount.id}}">
+			</select>
+		</div>
 	</div>
 	<hr>
 	<h4>{{'label.heading.advancedaccountingrules' | translate}}[<a ng-click="showOrHide(showOrHideValue)">{{showOrHideValue}}</a>]</h4>

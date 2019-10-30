@@ -288,6 +288,10 @@
                             <th>{{'label.account.maturity.date' | translate}}</th>
                             <td>{{loandetails.timeline.expectedMaturityDate | DateFormat}}</td>
                         </tr>
+                        <tr ng-show="loandetails.isNPA" style = "color:indianred">
+                            <th class="table-bold-loan">{{'NPA status' | translate}}</th>
+                            <td><span class="padded-td">NPA</span></td>
+                        </tr>
                     </table>
             </div>
             </div>
@@ -627,8 +631,8 @@
                         <button class="btn btn-primary pull-right" ng-show="checkStatus()" ng-click="export()">{{'label.button.export' | translate}}</button>
                         <button class="btn btn-primary pull-right" ng-show="checkStatus()" ng-click="viewJournalEntries()" style="margin-right: 8px;">{{'label.button.viewjournalentries' | translate}}</button>
                         <div class="pull-right">
-                            <input type="checkbox" data-ng-model="hideAccrualTransactions" ng-init = "hideAccuralTransactions = true">&nbsp;
-                            <label class="control-label">{{ 'label.input.hide.accrual.transactions' | translate }}</label>&nbsp;&nbsp;
+                            <input type="checkbox" data-ng-model="hideAccrualTransactions" style="cursor: pointer" name= "hideAccruals" id="hideAccruals" ng-init = "hideAccrualTransactions = true">&nbsp;
+                            <label class="control-label" for="hideAccruals" style="cursor: pointer">{{ 'label.input.hide.accrual.transactions' | translate }}</label>&nbsp;&nbsp;
                         </div>
                         <br>
                         <table class="table">
@@ -659,7 +663,8 @@
                             </thead>
                             <tbody>
                                 <tr class="pointer-main" ng-class="{strikeoff : transaction.manuallyReversed==true}"
-                                    ng-repeat="transaction in loandetails.transactions | orderBy:transactionSort.column:transactionSort.descending" ng-hide = "hideAccrualTransactions && transaction.type.accrual">
+                                    ng-repeat="transaction in loandetails.transactions | orderBy:transactionSort.column:transactionSort.descending" ng-hide = "hideAccrualTransactions && (transaction.type.accrual||transaction.type.accrualSuspense||
+                                        transaction.type.accrualReverse)">
                                     <td class="pointer" data-ng-click="routeTo(loandetails.id,transaction.id,transaction.type.id)">
                                         {{transaction.id}}
                                     </td>

@@ -1443,6 +1443,44 @@
                                 value="{{liabilityAccount.id}}">
                         </select>
                     </div>
+                    <label class="control-label col-sm-2">{{ 'Interest Suspense Account for NPA' | translate }}</label>
+                    <i class="fa fa-question-circle col-sm-1 "
+                       uib-tooltip="{{'label.tooltip.interestSuspenseLiabilityAccountForNPA' | translate}}"></i>
+
+                    <div class="col-sm-3">
+                        <select id="interestSuspenseAccountIdForNPA" ng-model="formData.interestSuspenseAccountIdForNPA"
+                                chosen="liabilityAccountOptions"
+                                ng-options="liabilityAccount.id as liabilityAccount.name for liabilityAccount in liabilityAccountOptions"
+                                ng-change="loanproduct.accountingMappings.interestSuspenseAccountForNPA.name = formValue(liabilityAccountOptions,formData.interestSuspenseAccountIdForNPA,'id','name')"
+                                value="{{liabilityAccount.id}}">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">{{ 'Fees Suspense Account for NPA' | translate }}</label>
+                    <i class="fa fa-question-circle col-sm-1 "
+                       uib-tooltip="{{'label.tooltip.feesSuspenseLiabilityAccountForNPA' | translate}}"></i>
+
+                    <div class="col-sm-3">
+                        <select id="feesSuspenseAccountIdForNPA" ng-model="formData.feesSuspenseAccountIdForNPA"
+                                chosen="liabilityAccountOptions"
+                                ng-options="liabilityAccount.id as liabilityAccount.name for liabilityAccount in liabilityAccountOptions"
+                                ng-change="loanproduct.accountingMappings.feesSuspenseAccountForNPA.name = formValue(liabilityAccountOptions,formData.feesSuspenseAccountIdForNPA,'id','name')"
+                                value="{{liabilityAccount.id}}">
+                        </select>
+                    </div>
+                    <label class="control-label col-sm-2">{{ 'Penalties Suspense Account for NPA' | translate }}</label>
+                    <i class="fa fa-question-circle col-sm-1 "
+                       uib-tooltip="{{'label.tooltip.penaltiesSuspenseLiabilityAccountForNPA' | translate}}"></i>
+
+                    <div class="col-sm-3">
+                        <select id="penaltiesSuspenseAccountIdForNPA" ng-model="formData.penaltiesSuspenseAccountIdForNPA"
+                                chosen="liabilityAccountOptions"
+                                ng-options="liabilityAccount.id as liabilityAccount.name for liabilityAccount in liabilityAccountOptions"
+                                ng-change="loanproduct.accountingMappings.penaltiesSuspenseAccountForNPA.name = formValue(liabilityAccountOptions,formData.penaltiesSuspenseAccountIdForNPA,'id','name')"
+                                value="{{liabilityAccount.id}}">
+                        </select>
+                    </div>
                 </div>
                 <hr>
                 <h4>{{'label.heading.advancedaccountingrules' | translate}}[<a ng-click="showOrHide(showOrHideValue)">{{showOrHideValue}}</a>]
@@ -2057,6 +2095,18 @@
                             <tr>
                                 <td>{{'label.heading.overpaymentliability' | translate}}:</td>
                                 <td colspan="3">{{loanproduct.accountingMappings.overpaymentLiabilityAccount.name}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'label.heading.interestSuspenseLiabilityAccountForNPA' | translate}}:</td>
+                                <td colspan="3">{{loanproduct.accountingMappings.interestSuspenseAccountForNPA.name}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'label.heading.feesSuspenseLiabilityAccountForNPA' | translate}}:</td>
+                                <td colspan="3">{{loanproduct.accountingMappings.feesSuspenseAccountForNPA.name}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'label.heading.penaltiesSuspenseLiabilityAccountForNPA' | translate}}:</td>
+                                <td colspan="3">{{loanproduct.accountingMappings.penaltiesSuspenseAccountForNPA.name}}</td>
                             </tr>
                             <tr>
                                 <td colspan="3"><br/></td>
