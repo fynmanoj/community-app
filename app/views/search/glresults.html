@@ -44,6 +44,7 @@
                         'label.heading.client' | translate }}</strong>:{{result.parentName}}</span>
                     <span data-ng-show="result.entityType  == 'LOAN' || result.entityType  == 'SAVING' || result.entityType  == 'SHARE'"><strong>{{'label.heading.entity' | translate}}</strong>:{{result.entityType}}&nbsp;|&nbsp;<strong>{{
                         'label.heading.' + result.parentType | translate }}</strong>:{{result.parentName}}</span>
+                        <span data-ng-show="result.entityExternalId"><strong>&nbsp;|&nbsp;{{'External Id' | translate}} : </strong>{{result.entityExternalId}}</span>
                     <span><br/></span>
                 </div>
             </div>

@@ -1007,6 +1007,9 @@
             .when('/editadhocquery/:id', {
                 templateUrl: 'views/adhocquery/editadhocquery.html'
             })
+            .when('/recent',{
+                templateUrl: 'views/recentPages.html'
+            })
             .otherwise({
                 templateUrl: "views/errors/404.html"
             })

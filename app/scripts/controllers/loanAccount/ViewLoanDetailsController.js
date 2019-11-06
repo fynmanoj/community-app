@@ -720,6 +720,41 @@
 
                 return true;
             };
+            scope.select={allCharges :false};
+            scope.clickSelectAllCharges = function(){
+                console.log(scope.select.allCharges)
+                if(scope.select.allCharges){
+                    _.each(scope.charges, function(charge){
+                        if(!charge.actionFlag)
+                            charge.isSelected = true;
+                    })
+                }else{
+                    _.each(scope.charges, function(charge){
+                        charge.isSelected = false;
+                    })
+                }
+            } 
+            scope.bulkWaive = function(){
+                scope.select.error =  "";
+                var chargesToWaive = [];
+                _.each(scope.charges, function(charge){
+                    if(charge.isSelected)
+                        chargesToWaive.push(charge.id);
+                });
+                if(chargesToWaive.length ==0){
+                    scope.select.error = "Please select charges to waive." 
+                    return
+                }
+                var apiReqData = {
+                    "locale":scope.optlang.code,
+                    "dateFormat":  scope.df.code,
+                    chargeIds : chargesToWaive
+                }
+                resourceFactory.loanChargesResource.save({loanId: routeParams.id, chargeId : 0, command : "waive"}, apiReqData, function (data) {
+                    scope.select.error = "Waived successfully";
+                    route.reload();
+                }); 
+            }
         }
     });
     mifosX.ng.application.controller('ViewLoanDetailsController', ['$scope', '$routeParams', 'ResourceFactory','PaginatorService', '$location', '$route', '$http', '$uibModal', 'dateFilter', 'API_VERSION', '$sce', '$rootScope', mifosX.controllers.ViewLoanDetailsController]).run(function ($log) {

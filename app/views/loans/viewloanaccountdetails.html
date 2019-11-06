@@ -288,6 +288,11 @@
                             <th>{{'label.account.maturity.date' | translate}}</th>
                             <td>{{loandetails.timeline.expectedMaturityDate | DateFormat}}</td>
                         </tr>
+                        
+                        <tr ng-show="loandetails.summary.dpd" style = "color:indianred">
+                            <th class="table-bold-loan">{{"DPD" | translate}}</th>
+                            <td><span class="padded-td">{{loandetails.summary.dpd}}</span></td>
+                        </tr>
                         <tr ng-show="loandetails.isNPA" style = "color:indianred">
                             <th class="table-bold-loan">{{'NPA status' | translate}}</th>
                             <td><span class="padded-td">NPA</span></td>
@@ -829,10 +834,14 @@
                         </table>
                     </uib-tab>
 
-
+                    
                     <uib-tab ng-show="chargeTableShow" heading="{{'label.heading.charges' | translate}}">
+                        <a class="btn btn-primary" data-ng-show="charges.length>0" data-ng-click = "bulkWaive()">Waive Selected</a> &nbsp;&nbsp;
+                        <span class="error">{{select.error}}</span>
                         <table class="table width100">
                             <tr class="graybg">
+                                <th><input type="checkbox"  data-ng-model="select.allCharges" style="cursor: pointer" name= "selectAllCharges" id="selectAllCharges" data-ng-change="clickSelectAllCharges()"
+                                    ng-true-value="true" ng-false-value="false"></th>
                                 <th>{{'label.heading.name' | translate}}</th>
                                 <th>{{'label.heading.feeorpenalty' | translate}}</th>
                                 <th>{{'label.heading.paymentdueat' | translate}}</th>
@@ -844,7 +853,9 @@
                                 <th>{{'label.heading.outstanding' | translate}}</th>
                                 <th>{{'label.heading.actions' | translate}}</th>
                             </tr>
-                            <tr ng-repeat="charge in charges" class="pointer-main">
+                            <tr ng-repeat="charge in charges track by $index" class="pointer-main">
+                                <td><input type="checkbox" data-ng-hide="charge.actionFlag" data-ng-model="charge.isSelected" style="cursor: pointer" name= "selCharge{{$index}}" id="selCharge{{$index}}"
+                                    ng-true-value="true" ng-false-value="false"> </td>
                                 <td class="pointer" data-ng-click="viewLoanChargeDetails(charge.id)">{{charge.name}}</td>
                                 <td ng-show="charge.penalty" class="pointer" data-ng-click="viewLoanChargeDetails(charge.id)">{{"penalty"}}</td>
                                 <td ng-hide="charge.penalty" class="pointer" data-ng-click="viewLoanChargeDetails(charge.id)">{{"fee"}}</td>
