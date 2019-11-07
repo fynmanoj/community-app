@@ -1,6 +1,6 @@
 (function (module) {
     mifosX.controllers = _.extend(module, {
-        ViewReportController: function (scope, routeParams, resourceFactory, location, $uibModal) {
+        ViewReportController: function (scope, routeParams, resourceFactory, location, $uibModal, route) {
             resourceFactory.reportsResource.getReportDetails({id: routeParams.id}, function (data) {
                 scope.report = data;
                 scope.noncoreReport = data.coreReport == true ? false : true;
@@ -22,9 +22,19 @@
                     $uibModalInstance.dismiss('cancel');
                 };
             };
+            scope.disableReport = function(){
+                resourceFactory.reportsResource.update({id: routeParams.id, command:"disable"}, {}, function (data) {
+                    route.reload();
+                });
+            }
+            scope.enableReport = function(){
+                resourceFactory.reportsResource.update({id: routeParams.id, command:"enable"},{}, function (data) {
+                    route.reload();
+                });
+            }
         }
     });
-    mifosX.ng.application.controller('ViewReportController', ['$scope', '$routeParams', 'ResourceFactory', '$location', '$uibModal', mifosX.controllers.ViewReportController]).run(function ($log) {
+    mifosX.ng.application.controller('ViewReportController', ['$scope', '$routeParams', 'ResourceFactory', '$location', '$uibModal', '$route', mifosX.controllers.ViewReportController]).run(function ($log) {
         $log.info("ViewReportController initialized");
     });
 }(mifosX.controllers || {}));

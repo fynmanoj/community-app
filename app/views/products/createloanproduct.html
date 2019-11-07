@@ -1426,6 +1426,18 @@
                                 value="{{expenseAccount.id}}">
                         </select>
                     </div>
+                    <label class="control-label col-sm-2">{{ 'label.input.loseswaived' | translate }}</label>
+                    <i class="fa fa-question-circle col-sm-1 "
+                       uib-tooltip="{{'label.tooltip.loseswaived' | translate}}"></i>
+
+                    <div class="col-sm-3">
+                        <select id="waiverAccountId" ng-model="formData.waiverAccountId"
+                                chosen="expenseAccountOptions"
+                                ng-options="expenseAccount.id as expenseAccount.name for expenseAccount in expenseAccountOptions"
+                                ng-change="loanproduct.accountingMappings.waiverAccount.name = formValue(expenseAccountOptions,formData.waiverAccountId,'id','name')"
+                                value="{{expenseAccount.id}}">
+                        </select>
+                    </div>
                 </div>
                 <hr>
                 <div class="form-group">
@@ -2091,6 +2103,10 @@
                             <tr>
                                 <td>{{'label.heading.loseswrittenoff' | translate}}:</td>
                                 <td colspan="3">{{loanproduct.accountingMappings.writeOffAccount.name}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'label.heading.loseswaived' | translate}}:</td>
+                                <td colspan="3">{{loanproduct.accountingMappings.waiverAccount.name}}</td>
                             </tr>
                             <tr>
                                 <td>{{'label.heading.overpaymentliability' | translate}}:</td>

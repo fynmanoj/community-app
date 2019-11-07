@@ -4269,6 +4269,12 @@
   "label.tooltip.interestSuspenseLiabilityAccountForNPA":"a Liability account that is used for interest accrual for NPA loans.",
   "label.tooltip.feesSuspenseLiabilityAccountForNPA" : "a Liability account that is used for fees accrual for NPA loans.",
   "label.tooltip.penaltiesSuspenseLiabilityAccountForNPA" : "a Liability account that is used for penalties accrual for NPA loans.",
+  "label.input.loseswaived" : "Losses Waived",
+  "label.tooltip.loseswaived" : "An Expense account for Losses Waived",
+  "label.heading.loseswaived" : "Losses Waived",
+  
+
+
 
   "----End---": "--End of file--- "
 }

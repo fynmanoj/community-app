@@ -1097,6 +1097,14 @@
 	                ng-options="expenseAccount.id as expenseAccount.name for expenseAccount in expenseAccountOptions"
 	                value="{{expenseAccount.id}}">
 	        </select>
+		</div>
+		<label class="control-label col-sm-2">{{ 'label.input.loseswaived' | translate }}</label>
+	    <i class="fa fa-question-circle col-sm-1 " uib-tooltip="{{'label.tooltip.loseswaived' | translate}}"></i>
+	    <div class="col-sm-3">
+	        <select id="waiverAccountId" ng-model="formData.waiverAccountId" chosen="expenseAccountOptions"
+	                ng-options="expenseAccount.id as expenseAccount.name for expenseAccount in expenseAccountOptions"
+	                value="{{expenseAccount.id}}">
+	        </select>
 	    </div>
 	</div>
 	<hr>

@@ -203,6 +203,7 @@
                     scope.formData.incomeFromPenaltyAccountId = scope.product.accountingMappings.incomeFromPenaltyAccount.id;
                     scope.formData.incomeFromRecoveryAccountId = scope.product.accountingMappings.incomeFromRecoveryAccount.id;
                     scope.formData.writeOffAccountId = scope.product.accountingMappings.writeOffAccount.id;
+                    scope.formData.waiverAccountId = scope.product.accountingMappings.waiverAccount.id;
                     scope.formData.overpaymentLiabilityAccountId = scope.product.accountingMappings.overpaymentLiabilityAccount.id;
                     scope.formData.interestSuspenseAccountIdForNPA = scope.product.accountingMappings.interestSuspenseAccountForNPA.id;
                     scope.formData.feesSuspenseAccountIdForNPA = scope.product.accountingMappings.feesSuspenseAccountForNPA.id;

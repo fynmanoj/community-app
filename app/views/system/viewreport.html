@@ -14,6 +14,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="pull-right">
+                        <a class="btn btn-primary" ng-click="enableReport()" ng-if="!report.useReport">Enable</a>
+                        <a class="btn btn-warning" ng-click="disableReport()" ng-if="report.useReport">Disable</a>
                         <a href="#/editreport/{{report.id}}" class="btn btn-primary" has-permission='UPDATE_REPORT'><i class="fa fa-edit "></i>&nbsp;&nbsp;{{'label.button.edit'
                             | translate}}</a>
                         <button type="button" class="btn btn-danger" ng-show="noncoreReport" ng-click="deletereport()" has-permission='DELETE_REPORT'><i
